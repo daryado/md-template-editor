@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-auth-db
+  labels:
+    tier: auth-db
+data:
+  POSTGRES_PASSWORD: ttttt

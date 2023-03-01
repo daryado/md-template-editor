@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: template-config
+  labels:
+    tier: template-server
+data:
+  GATEWAY_PORT: "8001"
+  DB_DRIVER: postgres
+  DB_HOST: template-db
+  DB_PORT: "5432"
+  DB_USER: postgres
+  DB_PASSWORD: ttttt
+  DB_NAME: postgres
+  DB_SSLMODE: disable
+  MIGRATION_URL: file://migrate

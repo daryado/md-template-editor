@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: front-config
+data:
+  API_TEMPLATE_URL: http://localhost:8001
+  API_AUTH_URL: auth-server

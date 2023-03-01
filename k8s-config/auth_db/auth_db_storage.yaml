@@ -1,0 +1,29 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: volume-auth-db
+  labels:
+    type: local
+    tier: auth-db
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/data/auth-db"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: claim-auth-db
+  labels:
+    tier: auth-db
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

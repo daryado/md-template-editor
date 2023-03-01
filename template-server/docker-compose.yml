@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  template-server:
+    env_file:
+      - .env
+    build: ./
+    command: ./wait-for-postgres.sh template_db ./template-server
+    ports:
+      - "8001:8000"
+    depends_on:
+      - template_db
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      DB_SSLMODE: ${DB_SSLMODE}
+ #   environment:
+ #       DB_HOST: "template_db"
+ #       DB_PORT: "5432"
+ #       DB_USER: "postgres"
+ #       DB_PASSWORD: "ttttt"
+ #       DB_NAME: "postgres"
+
+  template_db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data
+    environment:
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 5447:5432

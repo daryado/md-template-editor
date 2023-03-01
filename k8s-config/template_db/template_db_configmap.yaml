@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-template-db
+  labels:
+    tier: template-db
+data:
+  POSTGRES_PASSWORD: ttttt

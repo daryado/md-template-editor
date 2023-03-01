@@ -1,0 +1,29 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: volume-template-db
+  labels:
+    type: local
+    tier: template-db
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/data/template-db"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: claim-template-db
+  labels:
+    tier: template-db
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

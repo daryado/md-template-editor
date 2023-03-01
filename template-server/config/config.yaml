@@ -1,0 +1,15 @@
+port: 8001
+
+db:
+  username: "postgres"
+  host: "template_db"
+  port: "5432"
+  dbname: "postgres"
+  sslmode: "disable"
+
+auth:
+  secret: "qrkjk#4#%35FSFJlja#4353KSFjH"
+
+upload:
+  location: '\'
+  dir_name: "uploads"

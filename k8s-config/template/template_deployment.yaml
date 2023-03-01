@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: template-server
+  labels:
+    tier: template-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: template-server
+  template:
+    metadata:
+      labels:
+        tier: template-server
+    spec:
+      containers:
+        - name: template-server
+          image: dashhhok/template-server:latest
+          envFrom:
+            - configMapRef:
+                name: template-config
+          ports:
+            - containerPort: 8001
+              protocol: TCP

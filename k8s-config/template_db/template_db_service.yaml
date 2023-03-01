@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: template-db
+  labels:
+    tier: templte-db
+spec:
+  type: NodePort
+  ports:
+    - port: 5432
+  selector:
+    tier: template-db

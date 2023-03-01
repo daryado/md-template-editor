@@ -1,0 +1,15 @@
+port: 8000
+
+db:
+  username: "postgres"
+  host: "db"
+  port: "5432"
+  dbname: "postgres"
+  sslmode: "disable"
+
+auth:
+  hash_salt: "hash_salt"
+  signing_key: "signing_key"
+  token_ttl: "3h"
+  salt: "pprehjqw124617gkvftyw"
+  secret: "qrkjk#4#%35FSFJlja#4353KSFjH"

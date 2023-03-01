@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-server
+  labels:
+    tier: auth-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: auth-server
+  template:
+    metadata:
+      labels:
+        tier: auth-server
+    spec:
+      containers:
+        - name: auth-server
+          image: dashhhok/auth_server:latest
+          envFrom:
+            - configMapRef:
+                name: auth-config
+          ports:
+            - containerPort: 8000
+              protocol: TCP

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: template-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: template-db
+  template:
+    metadata:
+      labels:
+        tier: template-db
+    spec:
+      containers:
+        - name: template-db
+          image: postgres:14.5
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: config-template-db
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: template-db
+      volumes:
+        - name: template-db
+          persistentVolumeClaim:
+            claimName: claim-template-db

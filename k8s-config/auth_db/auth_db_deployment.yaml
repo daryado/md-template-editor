@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: auth-db
+  template:
+    metadata:
+      labels:
+        tier: auth-db
+    spec:
+      containers:
+        - name: auth-db
+          image: postgres:14.5
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: config-auth-db
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: auth-db
+      volumes:
+        - name: auth-db
+          persistentVolumeClaim:
+            claimName: claim-auth-db
