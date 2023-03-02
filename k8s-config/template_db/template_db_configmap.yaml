@@ -5,4 +5,8 @@ metadata:
   labels:
     tier: template-db
 data:
+<<<<<<< HEAD
+  POSTGRES_PASSWORD:
+=======
   POSTGRES_PASSWORD: ttttt
+>>>>>>> origin

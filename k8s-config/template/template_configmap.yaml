@@ -9,8 +9,14 @@ data:
   DB_DRIVER: postgres
   DB_HOST: template-db
   DB_PORT: "5432"
+<<<<<<< HEAD
+  DB_USER:
+  DB_PASSWORD:
+  DB_NAME:
+=======
   DB_USER: postgres
   DB_PASSWORD: ttttt
   DB_NAME: postgres
+>>>>>>> origin
   DB_SSLMODE: disable
   MIGRATION_URL: file://migrate

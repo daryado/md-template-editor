@@ -1,5 +1,7 @@
 port: 8001
 
+<<<<<<< HEAD
+=======
 db:
   username: "postgres"
   host: "template_db"
@@ -7,9 +9,14 @@ db:
   dbname: "postgres"
   sslmode: "disable"
 
+>>>>>>> origin
 auth:
   secret: "qrkjk#4#%35FSFJlja#4353KSFjH"
 
 upload:
   location: '\'
+<<<<<<< HEAD
   dir_name: "uploads"
+=======
+  dir_name: "uploads"
+>>>>>>> origin

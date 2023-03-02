@@ -3,5 +3,10 @@ kind: ConfigMap
 metadata:
   name: front-config
 data:
+<<<<<<< HEAD
+  API_TEMPLATE_URL:
+  API_AUTH_URL:
+=======
   API_TEMPLATE_URL: http://localhost:8001
   API_AUTH_URL: auth-server
+>>>>>>> origin
